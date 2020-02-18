@@ -1,21 +1,57 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:orientation="vertical"
+    android:orientation="horizontal"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:padding="@dimen/activity_horizontal_margin" >
+    android:layout_height="@dimen/list_item_height"
+    android:minHeight="@dimen/list_item_height">
 
-    <TextView
-        android:id="@+id/miwok_text_view"
+    <ImageView
+        android:id="@+id/miwok_image"
+        android:layout_width="@dimen/list_item_height"
+        android:layout_height="@dimen/list_item_height" />
+
+    <LinearLayout
+        android:id="@+id/text_context"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        tools:text="lutti"/>
+        android:layout_height="match_parent"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:layout_toRightOf="@id/miwok_image"
+        android:orientation="vertical"
+        android:paddingLeft="@dimen/activity_horizontal_margin" >
 
-    <TextView
-        android:id="@+id/default_text_view"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        tools:text="one"/>
+        <TextView
+            android:id="@+id/miwok_text_view"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:gravity="bottom"
+            android:textAppearance="?android:textAppearanceMedium"
+            android:textStyle="bold"
+            android:textColor="@color/category_text"
+            />
 
-</LinearLayout>
+        <TextView
+            android:id="@+id/default_text_view"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:gravity="top"
+            android:textAppearance="?android:textAppearanceMedium"
+            android:textColor="@color/category_text"
+            />
+
+    </LinearLayout>
+
+    <ImageView
+        android:layout_width="@dimen/play_icon_height"
+        android:layout_height="@dimen/play_icon_height"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="@dimen/activity_horizontal_margin"
+        android:src="@drawable/ic_play_arrow_white_24dp"
+        />
+
+</RelativeLayout>
