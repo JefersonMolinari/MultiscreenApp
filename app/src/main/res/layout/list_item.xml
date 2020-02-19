@@ -45,13 +45,13 @@
 
     </LinearLayout>
 
-    <ImageView
-        android:layout_width="@dimen/play_icon_height"
-        android:layout_height="@dimen/play_icon_height"
-        android:layout_alignParentRight="true"
-        android:layout_centerVertical="true"
-        android:layout_marginRight="@dimen/activity_horizontal_margin"
-        android:src="@drawable/ic_play_arrow_white_24dp"
-        />
+<!--    <ImageView-->
+<!--        android:layout_width="@dimen/play_icon_height"-->
+<!--        android:layout_height="@dimen/play_icon_height"-->
+<!--        android:layout_alignParentRight="true"-->
+<!--        android:layout_centerVertical="true"-->
+<!--        android:layout_marginRight="@dimen/activity_horizontal_margin"-->
+<!--        android:src="@drawable/ic_play_arrow_white_24dp"-->
+<!--        />-->
 
 </RelativeLayout>
