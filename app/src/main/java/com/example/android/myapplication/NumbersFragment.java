@@ -1,20 +1,33 @@
 package com.example.android.myapplication;
 
-import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+
+import androidx.fragment.app.Fragment;
+
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 
-public class NumbersActivity extends AppCompatActivity {
+/**
+ * A simple {@link Fragment} subclass.
+ */
+public class NumbersFragment extends Fragment {
+
+    public NumbersFragment() {
+        // Required empty public constructor
+    }
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.word_list);
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+        View rootView = inflater.inflate(R.layout.word_list, container, false);
 
-        ArrayList<Word> words = new ArrayList<Word>();
+        final ArrayList<Word> words = new ArrayList<Word>();
         words.add(new Word("one", "lutti", R.raw.number_one, R.drawable.number_one));
         words.add(new Word("two", "otiiko", R.raw.number_two, R.drawable.number_two));
         words.add(new Word("three", "tolookosu", R.raw.number_three, R.drawable.number_three));
@@ -26,8 +39,10 @@ public class NumbersActivity extends AppCompatActivity {
         words.add(new Word("nine", "wo'e", R.raw.number_nine, R.drawable.number_nine));
         words.add(new Word("ten", "na'aacha", R.raw.number_ten, R.drawable.number_ten));
 
-        WordAdapter adapter = new WordAdapter(this, words, R.color.category_numbers);
-        ListView listView = findViewById(R.id.list);
+        WordAdapter adapter = new WordAdapter(getActivity(), words, R.color.category_numbers);
+        ListView listView = rootView.findViewById(R.id.list);
         listView.setAdapter(adapter);
+
+        return rootView;
     }
 }

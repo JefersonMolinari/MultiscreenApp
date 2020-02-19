@@ -1,20 +1,35 @@
 package com.example.android.myapplication;
 
-import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+
+import androidx.fragment.app.Fragment;
+
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 
-public class FamilyActivity extends AppCompatActivity {
+/**
+ * A simple {@link Fragment} subclass.
+ */
+public class FamilyFragment extends Fragment {
+
+
+    public FamilyFragment() {
+        // Required empty public constructor
+    }
+
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.word_list);
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+        View rootView = inflater.inflate(R.layout.word_list, container, false);
 
-        ArrayList<Word> words = new ArrayList<Word>();
+        final ArrayList<Word> words = new ArrayList<Word>();
         words.add(new Word("father", "әpә", R.raw.family_father, R.drawable.family_father));
         words.add(new Word("mother", "әṭa", R.raw.family_mother, R.drawable.family_mother));
         words.add(new Word("son", "angsi", R.raw.family_son, R.drawable.family_son));
@@ -26,8 +41,10 @@ public class FamilyActivity extends AppCompatActivity {
         words.add(new Word("grandmother", "ama", R.raw.family_grandmother, R.drawable.family_grandmother));
         words.add(new Word("grandfather", "paapa", R.raw.family_grandfather, R.drawable.family_grandfather));
 
-        WordAdapter adapter = new WordAdapter(this, words,R.color.category_family);
-        ListView listView = findViewById(R.id.list);
+        WordAdapter adapter = new WordAdapter(getActivity(), words, R.color.category_family);
+        ListView listView = rootView.findViewById(R.id.list);
         listView.setAdapter(adapter);
+
+        return rootView;
     }
 }

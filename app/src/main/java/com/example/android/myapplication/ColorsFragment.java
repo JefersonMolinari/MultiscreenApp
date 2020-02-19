@@ -1,24 +1,35 @@
 package com.example.android.myapplication;
 
-import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Context;
-import android.media.AudioManager;
-import android.media.MediaPlayer;
 import android.os.Bundle;
+
+import androidx.fragment.app.Fragment;
+
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 
-public class ColorsActivity extends AppCompatActivity {
+/**
+ * A simple {@link Fragment} subclass.
+ */
+public class ColorsFragment extends Fragment {
+
+
+    public ColorsFragment() {
+        // Required empty public constructor
+    }
+
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.word_list);
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+        View rootView = inflater.inflate(R.layout.word_list, container, false);
 
-
-        ArrayList<Word> words = new ArrayList<Word>();
+        final ArrayList<Word> words = new ArrayList<Word>();
         words.add(new Word("red", "weṭeṭṭi", R.raw.color_red, R.drawable.color_red));
         words.add(new Word("green", "chokokki", R.raw.color_green, R.drawable.color_green));
         words.add(new Word("brown", "ṭakaakki", R.raw.color_brown, R.drawable.color_brown));
@@ -28,8 +39,10 @@ public class ColorsActivity extends AppCompatActivity {
         words.add(new Word("dusty yelow", "ṭopiisә", R.raw.color_dusty_yellow, R.drawable.color_dusty_yellow));
         words.add(new Word("mustard yellow", "chiwiiṭә", R.raw.color_mustard_yellow, R.drawable.color_mustard_yellow));
 
-        WordAdapter adapter = new WordAdapter(this, words, R.color.category_colors);
-        ListView listView = findViewById(R.id.list);
+        WordAdapter adapter = new WordAdapter(getActivity(), words, R.color.category_colors);
+        ListView listView = rootView.findViewById(R.id.list);
         listView.setAdapter(adapter);
+
+        return rootView;
     }
 }
